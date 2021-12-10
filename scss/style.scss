@@ -1,0 +1,113 @@
+// nullstyle importing
+@import "nullstyle";
+
+// vars
+$transition: all 0.3s ease 0s;
+$wrapper-bg: #f2f2f2;
+$sedan-bg: #e38826;
+$suv-bg: #006970;
+$luxury-bg: #004241;
+$h1-ff: 'Big Shoulders Display', cursive;
+$h1-fw: 700;
+$h1-fc: #fff;
+$p-ff: 'Lexend Deca', sans-serif;
+$p-fz: 15px;
+$p-fw: 400;
+$p-fc: rgba(255, 255, 255, 0.75);
+$btn-bg: #fff;
+
+
+// main styles
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background: $wrapper-bg;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards {
+    display: flex;
+    margin: 20px 0;
+}
+
+.card {
+    width: 287px;
+    padding: 45px 40px;
+    display: flex;
+    flex-direction: column;
+    & img {
+        width: 50px;
+    }
+    & h1 {
+        font-family: $h1-ff;
+        font-weight: $h1-fw;
+        color: $h1-fc;
+        margin: 20px 0;
+    }
+    & p {
+
+        flex: 1 1 100%;
+    }
+    &:nth-child(1) {
+        border-radius: 7px 0 0 7px;
+        background: $sedan-bg;
+    }
+    &:nth-child(2) {
+        background: $suv-bg;
+    }
+    &:nth-child(3) {
+        background: $luxury-bg;
+        border-radius: 0 7px 7px 0;
+    }
+    & p {
+        font-family: $p-ff;
+        font-size: $p-fz;
+        font-weight: $p-fw;
+        color: $p-fc;
+        margin-bottom: 70px;
+    }
+}
+button {
+    align-self: start;
+    border: 3px solid $btn-bg;
+    border-radius: 25px;
+    background: $btn-bg;
+    font-family: $p-ff;
+    font-size: $p-fz;
+    font-weight: $p-fw;
+    padding: 8px 25px;
+    &.sedan-btn {
+        color: $sedan-bg; 
+    }
+    &.suv-btn {
+        color: $suv-bg; 
+    }
+    &.luxury-btn {
+        color: $luxury-bg; 
+    }
+    transition: $transition;
+    cursor: pointer;
+    &:hover {
+        background: none;
+        color: $btn-bg;
+    }
+}
+
+// media
+@media (max-width: 991px) {
+    .cards {
+        flex-direction: column;
+        justify-content: center;
+        margin: 70px 0;
+    }
+    .card {
+        &:nth-child(1) {
+            border-radius: 7px 7px 0 0;
+        }
+        &:nth-child(3) {
+            border-radius: 0 0 7px 7px;
+        }
+    }
+}
